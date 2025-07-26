@@ -1,16 +1,22 @@
-# streamlit_app.py
+# PowerTest.py
 
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, GRU, Dense
 
-# Set page config
+# Try importing matplotlib
+try:
+    import matplotlib.pyplot as plt
+except ModuleNotFoundError:
+    st.error("❌ matplotlib is not installed. Please add it to your requirements.txt or install it locally using `pip install matplotlib`.")
+    st.stop()
+
+# Page config
 st.set_page_config(page_title="Power Demand Forecasting", layout="wide")
 
 # Title
